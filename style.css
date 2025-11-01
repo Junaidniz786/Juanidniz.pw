@@ -1,0 +1,108 @@
+/* کچھ بیسک اسٹائلنگ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 50px; /* ہیڈر کے لیے جگہ */
+    background-color: #f4f4f9;
+}
+
+/* ہیڈر اسٹائل */
+.header {
+    background-color: #6a6a6a; 
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* سائیڈبار مینیو اسٹائل */
+.sidebar {
+    height: 100%;
+    width: 0; /* شروع میں چھپا ہوا */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+}
+
+.sidebar a, .sidebar button {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+    border: none;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    background: none;
+    border: none;
+}
+
+/* چینل بٹن اسٹائل */
+.channel-btn {
+    margin: 10px 25px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.telegram {
+    background-color: #0088cc; 
+}
+
+.whatsapp {
+    background-color: #25D366; 
+}
+
+/* مرکزی مواد اسٹائل */
+.content {
+    padding: 20px;
+    transition: margin-left .5s;
+}
+
+.search-btn {
+    background-color: #333d52; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.intro-text {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+}
