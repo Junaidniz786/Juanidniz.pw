@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Junaid Niz Official</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My All-in-One Tools</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
-<body style="text-align:center; font-family:sans-serif;">
-  <h1>Welcome to Junaid Niz Website 🌐</h1>
-  <p>This website is live on GitHub Pages.</p>
-  <p>Domain: junaidniz.pw</p>
+<body>
+    <header class="header">
+        <div class="logo">My Flex - All-in-One Tools</div>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <nav id="sidebar-menu" class="sidebar">
+        <button class="close-btn" onclick="toggleMenu()">❌</button>
+        <a href="#">📞 Contact</a>
+        <a href="#">ℹ️ About</a>
+        <a href="#">⚖️ Disclaimer</a>
+        <a href="#">🔒 Privacy Policy</a>
+        <button class="channel-btn telegram">🔗 Join Telegram Channel</button>
+        <button class="channel-btn whatsapp">💬 Follow WhatsApp Channel</button>
+    </nav>
+
+    <main class="content">
+        <h1>My Flex - Free Tools</h1>
+        <p>All-in-One Platform: TV, AI, Database, Internet Tools, & More</p>
+        <button class="search-btn">Search tools...</button>
+        
+        <div class="intro-text">
+            <p>My Flex offers all-in-one tools — from free TV streaming to AI and database lookup.</p>
+            <p>Everything is organized in one place for easy access. 100% safe & educational purpose only.</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
