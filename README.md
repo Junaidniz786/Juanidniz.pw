@@ -1,1 +1,1 @@
-junaidniz.pw
+http://Junaidniz.pw
