@@ -50,7 +50,7 @@ module.exports = async (req, res) => {
   const headers = {
     "User-Agent":
       "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36",
-    Cookie: "PHPSESSID=eudb5j19b9dfknm2tdvptgtru1",
+    Cookie: "PHPSESSID=pjgc5l4se6s6p85i8agI1jtusu",
   };
 
   let url;
