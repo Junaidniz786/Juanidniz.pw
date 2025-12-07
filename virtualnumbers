@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Temporary Phone Numbers – Junaid Niz</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- libphonenumber (for country auto-detect) -->
+  <script src="https://cdn.jsdelivr.net/npm/google-libphonenumber@3.2.31/dist/libphonenumber.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      /* PROFESSIONAL GRADIENT BACKGROUND */
+      background:
+        radial-gradient(circle at 0% 0%, rgba(59,130,246,0.35), transparent 55%),
+        radial-gradient(circle at 100% 15%, rgba(129,140,248,0.35), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(45,212,191,0.25), transparent 55%),
+        linear-gradient(to bottom, #0f172a 0, #020617 180px, #f3f4f6 180px);
+      background-attachment: fixed;
+      color: #111827;
+    }
+
+    /* Nav ko float-card jaisa look */
+    .nav-glass {
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+      border-radius: 999px;
+    }
+
+    /* Main white content wrapper */
+    .content-shell {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 26px 60px rgba(15,23,42,0.25);
+      border-radius: 1.5rem;
+    }
+
+    /* SPECIAL BRAND NAME */
+    .brand-name{
+      background:linear-gradient(120deg,#4f46e5,#ec4899,#f97316);
+      background-clip:text;
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .brand-tag{
+      font-size:11px;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+
+<!-- NAVBAR -->
+<nav class="w-full flex justify-center fixed top-4 z-50 px-4">
+  <div class="nav-glass w-full max-w-5xl bg-white flex justify-between items-center px-4 py-2 sm:px-6">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-black font-bold">
+        J
+      </div>
+      <div>
+        <div class="brand-name text-lg font-extrabold leading-tight">Junaid Niz</div>
+        <div class="brand-tag text-gray-500 -mt-1">Vip Numbers Hub</div>
+      </div>
+    </div>
+
+    <button id="menuBtn">
+      <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="fixed top-0 right-[-280px] w-64 h-full bg-white shadow-2xl transition-all duration-300 z-40">
+  <div class="p-4 flex justify-between items-center border-b">
+    <span class="font-semibold text-lg">Menu</span>
+    <button id="closeMenuBtn" class="text-gray-500 text-2xl leading-none">&times;</button>
+  </div>
+  <ul class="px-4 py-4 space-y-3 text-gray-700 text-sm">
+    <li><a href="index.html" class="hover:text-blue-600">📩 OTP Panel</a></li>
+    <li><a href="numbers.html" class="hover:text-blue-600 font-semibold">📱 Free Numbers</a></li>
+    <li><a href="https://t.me/+8uILVxT_n6lhYzFk" target="_blank" class="hover:text-blue-600">📢 Telegram Main Channel</a></li>
+    <li><a href="https://t.me/+c4VCxBCT3-QzZGFk" target="_blank" class="hover:text-blue-600">☎️ Numbers Channel</a></li>
+  </ul>
+</div>
+
+<script>
+  const menu = document.getElementById("sideMenu");
+  document.getElementById("menuBtn").onclick = () => {
+    menu.style.right = menu.style.right === "0px" ? "-280px" : "0px";
+  };
+  document.getElementById("closeMenuBtn").onclick = () => {
+    menu.style.right = "-280px";
+  };
+</script>
+
+<!-- PAGE CONTENT -->
+<div class="pt-28 sm:pt-32 pb-10 px-4">
+  <div class="max-w-5xl mx-auto content-shell p-5 sm:p-8">
+
+    <!-- TITLE -->
+    <section class="text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-800">
+        Latest Free Temporary Phone Numbers
+      </h2>
+      <p class="text-gray-500 mt-2 text-sm sm:text-base">
+        Live numbers merged from all your APIs. Select a country and use any number to receive OTP.
+      </p>
+    </section>
+
+    <!-- COUNTRY SELECT + REFRESH -->
+    <section class="mt-6 flex flex-col sm:flex-row sm:items-end gap-3">
+      <div class="flex-1">
+        <label class="text-gray-700 font-semibold text-sm">Select a Country</label>
+        <select id="countrySelect"
+                class="w-full mt-2 p-3 border rounded-lg shadow-sm bg-white text-sm">
+          <option value="all">🌍 All Countries</option>
+        </select>
+      </div>
+
+      <div class="flex gap-2">
+        <button id="refreshBtn"
+                class="px-4 py-2 bg-yellow-400 text-black rounded-lg font-semibold text-xs sm:text-sm shadow hover:opacity-90">
+          🔄 Refresh Numbers
+        </button>
+        <button id="randomBtn"
+                class="px-4 py-2 bg-white border border-gray-300 rounded-lg text-xs sm:text-sm hover:border-yellow-400">
+          🎲 Random Number
+        </button>
+      </div>
+    </section>
+
+    <!-- STATUS TEXT -->
+    <p id="statusText" class="mt-3 text-center text-xs text-gray-500">
+      Loading numbers …
+    </p>
+
+    <!-- SELECTED RANDOM NUMBER -->
+    <section class="mt-5 bg-white rounded-2xl shadow p-5 border border-gray-100">
+      <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-yellow-100 text-yellow-600">
+          📱
+        </span>
+        Selected Number
+      </h3>
+      <div id="selectedNumber" class="text-center">
+        <p class="text-gray-400 text-sm">Loading number selected ...</p>
+      </div>
+    </section>
+
+    <!-- NUMBERS GRID -->
+    <section class="mt-6">
+      <div class="flex justify-between items-center mb-3">
+        <h3 class="text-lg font-semibold text-gray-800">All Numbers</h3>
+        <span id="countSpan" class="text-xs text-gray-500"></span>
+      </div>
+
+      <div id="numbersContainer"
+           class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        <!-- Cards will be injected here -->
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  // ---------- Helper: phone + flag ----------
+  const phoneUtil = window.libphonenumber
+    ? window.libphonenumber.PhoneNumberUtil.getInstance()
+    : null;
+
+  const regionNames = (typeof Intl !== "undefined" && Intl.DisplayNames)
+    ? new Intl.DisplayNames(["en"], { type: "region" })
+    : null;
+
+  function flagFromRegion(regionCode) {
+    if (!regionCode) return "🌍";
+    const base = 127462;
+    return regionCode
+      .toUpperCase()
+      .split("")
+      .map(c => String.fromCodePoint(base + c.charCodeAt(0) - "A".charCodeAt(0)))
+      .join("");
+  }
+
+  const FLAG_FALLBACK = {
+    "COMOROS": "🇰🇲", "Comoros": "🇰🇲",
+    "Pakistan": "🇵🇰", "PAKISTAN": "🇵🇰",
+    "Nigeria": "🇳🇬", "NIGERIA": "🇳🇬",
+    "Nepal": "🇳🇵", "NEPAL": "🇳🇵",
+    "Morocco": "🇲🇦", "MOROCCO": "🇲🇦",
+    "Burkina Faso": "🇧🇫", "BURKINA FASO": "🇧🇫",
+    "India": "🇮🇳", "Bangladesh": "🇧🇩", "Afghanistan": "🇦🇫",
+    "Ethiopia": "🇪🇹", "Kyrgyzstan": "🇰🇬",
+    "Kazakhstan": "🇰🇿", "Tajikistan": "🇹🇯",
+    "Ukraine": "🇺🇦", "Congo": "🇨🇬",
+    "Venezuela": "🇻🇪"
+  };
+
+  function cleanCountryFromGroup(raw) {
+    if (!raw) return "Unknown";
+    let c = String(raw).trim();
+    c = c.split("-")[0].trim();
+    const digitIndex = c.search(/[0-9]/);
+    if (digitIndex !== -1) c = c.slice(0, digitIndex).trim();
+    c = c.replace(/\s+/g, " ");
+    return c || "Unknown";
+  }
+
+  function getCountryInfo(numberStr, groupText) {
+    try {
+      if (phoneUtil && numberStr) {
+        let n = String(numberStr).trim();
+        if (!n.startsWith("+")) n = "+" + n;
+        const parsed = phoneUtil.parseAndKeepRawInput(n, "");
+        const region = phoneUtil.getRegionCodeForNumber(parsed);
+        if (region) {
+          const countryName = regionNames ? regionNames.of(region) : region;
+          const flag = flagFromRegion(region);
+          return { country: countryName || "Unknown", flag };
+        }
+      }
+    } catch (e) { /* ignore */ }
+
+    const cg = cleanCountryFromGroup(groupText);
+    const flag = FLAG_FALLBACK[cg] || FLAG_FALLBACK[cg.toUpperCase()] || "🌍";
+    return { country: cg, flag };
+  }
+
+  function extractNumberFromRow(row) {
+    if (!Array.isArray(row)) return null;
+    const candidates = [];
+    for (let i = 0; i < row.length; i++) {
+      let v = row[i];
+      if (v == null) continue;
+      v = String(v).trim();
+      if (!v) continue;
+      const digits = v.replace(/\D/g, "");
+      if (digits.length >= 7 && digits.length <= 16) {
+        candidates.push({ idx: i, val: v, len: digits.length });
+      }
+    }
+    if (!candidates.length) return null;
+    candidates.forEach(c => {
+      let score = 0;
+      if (c.val.startsWith("+")) score += 3;
+      if (c.idx === 2) score += 2;
+      if (c.idx === 1) score += 1;
+      score += Math.min(c.len, 16) / 10;
+      c.score = score;
+    });
+    candidates.sort((a,b)=>b.score - a.score);
+    return candidates[0].val;
+  }
+
+  // ---------- APIs ----------
+  const CORS = "https://corsproxy.io/?";
+
+  const NUM_APIS = [
+    "https://www.junaidniz.pw/api/tempotp?type=numbers",
+    "https://www.kamibroken.pw/api/sms?type=numbers",
+    "https://www.junaidniz.pw/api/tempotps?type=numbers",
+  ].map(u => CORS + encodeURIComponent(u));
+
+  const SMS_APIS = [
+    "https://www.junaidniz.pw/api/tempotp?type=sms&iDisplayLength=10000",
+    "https://www.kamibroken.pw/api/sms?type=sms&iDisplayLength=10000",
+    "https://www.junaidniz.pw/api/tempotps?type=sms",
+  ].map(u => CORS + encodeURIComponent(u));
+
+  // ---------- DOM ----------
+  const countrySelect     = document.getElementById("countrySelect");
+  const numbersContainer  = document.getElementById("numbersContainer");
+  const statusText        = document.getElementById("statusText");
+  const countSpan         = document.getElementById("countSpan");
+  const selectedNumberDiv = document.getElementById("selectedNumber");
+  const refreshBtn        = document.getElementById("refreshBtn");
+  const randomBtn         = document.getElementById("randomBtn");
+
+  let allNumbers = [];   // {number, country, flag}
+  let filtered   = [];
+
+  async function loadNumbers() {
+    statusText.textContent = "Loading numbers from all APIs…";
+    numbersContainer.innerHTML = "";
+    countSpan.textContent = "";
+    selectedNumberDiv.innerHTML =
+      '<p class="text-gray-400 text-sm">No number selected yet.</p>';
+    allNumbers = [];
+    filtered = [];
+
+    refreshBtn.disabled = true;
+    refreshBtn.textContent = "Loading…";
+
+    try {
+      const rawRows = [];
+
+      // numbers APIs
+      for (const url of NUM_APIS) {
+        try {
+          const res = await fetch(url);
+          if (!res.ok) continue;
+          const json = await res.json();
+          let rows = [];
+          if (json && Array.isArray(json.aaData)) rows = json.aaData;
+          else if (json && Array.isArray(json.data)) rows = json.data;
+          else if (Array.isArray(json)) rows = json;
+          rows.forEach(r => {
+            const num = extractNumberFromRow(r);
+            if (!num) return;
+            const groupText = String(r[0] ?? r[1] ?? "").trim();
+            rawRows.push({ num, groupText });
+          });
+        } catch(e) { console.warn("NUM API error", url, e); }
+      }
+
+      // SMS APIs se bhi numbers
+      for (const url of SMS_APIS) {
+        try {
+          const res = await fetch(url);
+          if (!res.ok) continue;
+          const json = await res.json();
+          let rows = [];
+          if (json && Array.isArray(json.aaData)) rows = json.aaData;
+          else if (json && Array.isArray(json.data)) rows = json.data;
+          else if (Array.isArray(json)) rows = json;
+          rows.forEach(r => {
+            const num = extractNumberFromRow(r);
+            if (!num) return;
+            const groupText = String(r[1] ?? r[0] ?? "").trim();
+            rawRows.push({ num, groupText });
+          });
+        } catch(e) { console.warn("SMS API error", url, e); }
+      }
+
+      if (!rawRows.length) {
+        statusText.textContent = "No numbers received from any API.";
+        return;
+      }
+
+      // unique by number
+      const byNumber = new Map();
+      for (const row of rawRows) {
+        const n = String(row.num).trim();
+        if (!n) continue;
+        if (!byNumber.has(n)) byNumber.set(n, row);
+      }
+
+      allNumbers = Array.from(byNumber.values()).map(r => {
+        const info = getCountryInfo(r.num, r.groupText);
+        return {
+          number: r.num,
+          country: info.country,
+          flag: info.flag
+        };
+      });
+
+      if (!allNumbers.length) {
+        statusText.textContent = "Numbers list empty after merge.";
+        return;
+      }
+
+      populateCountrySelect();
+      applyFilter();
+      statusText.textContent = "Numbers loaded successfully.";
+
+    } catch(e) {
+      console.error(e);
+      statusText.textContent = "Error loading numbers: " + (e.message || "");
+    } finally {
+      refreshBtn.disabled = false;
+      refreshBtn.textContent = "🔄 Refresh Numbers";
+    }
+  }
+
+  function populateCountrySelect() {
+    const countries = [...new Set(allNumbers.map(n => n.country))]
+      .filter(c => c && c !== "Unknown")
+      .sort();
+
+    let html = `<option value="all">🌍 All Countries</option>`;
+    countries.forEach(country => {
+      const sample = allNumbers.find(n => n.country === country);
+      const flag = sample ? sample.flag : "🌍";
+      html += `<option value="${country}">${flag} ${country}</option>`;
+    });
+    countrySelect.innerHTML = html;
+  }
+
+  function applyFilter() {
+    const selected = countrySelect.value;
+    if (selected === "all") {
+      filtered = [...allNumbers];
+    } else {
+      filtered = allNumbers.filter(n => n.country === selected);
+    }
+    renderCards();
+    showRandom();
+  }
+
+  function renderCards() {
+    numbersContainer.innerHTML = "";
+    if (!filtered.length) {
+      numbersContainer.innerHTML =
+        "<p class='text-gray-400 text-sm col-span-full text-center mt-4'>No numbers for this country.</p>";
+      countSpan.textContent = "";
+      return;
+    }
+
+    countSpan.textContent = `Showing ${filtered.length} numbers`;
+
+    const frag = document.createDocumentFragment();
+    filtered.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "bg-white rounded-xl p-3 sm:p-4 shadow hover:shadow-lg transition cursor-pointer flex flex-col justify-between";
+
+      const num = item.number.startsWith("+") ? item.number : "+" + item.number;
+
+      card.innerHTML = `
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-2xl">${item.flag}</span>
+            <span class="text-xs font-semibold text-gray-500 truncate">${item.country}</span>
+          </div>
+          <p class="text-blue-600 font-semibold text-base sm:text-lg break-all">${num}</p>
+        </div>
+        <div class="flex justify-between items-center mt-3">
+          <button class="text-gray-500 text-xs flex items-center gap-1 copy-btn" data-number="${num}">
+            📋 Copy
+          </button>
+          <span class="text-green-500 text-lg">📶</span>
+        </div>
+      `;
+      frag.appendChild(card);
+    });
+    numbersContainer.appendChild(frag);
+
+    // Copy handlers
+    document.querySelectorAll(".copy-btn").forEach(btn => {
+      btn.onclick = async () => {
+        const n = btn.getAttribute("data-number");
+        try {
+          await navigator.clipboard.writeText(n);
+          btn.textContent = "✔ Copied";
+          setTimeout(()=>{ btn.textContent = "📋 Copy"; }, 1500);
+        } catch(e) {
+          alert("Copy failed: " + e);
+        }
+      };
+    });
+  }
+
+  function showRandom() {
+    if (!filtered.length) {
+      selectedNumberDiv.innerHTML =
+        `<p class="text-red-400 text-sm">No numbers available.</p>`;
+      return;
+    }
+    const idx = Math.floor(Math.random() * filtered.length);
+    const item = filtered[idx];
+    const num = item.number.startsWith("+") ? item.number : "+" + item.number;
+
+    selectedNumberDiv.innerHTML = `
+      <div class="text-4xl mb-1">${item.flag}</div>
+      <p class="text-gray-500 text-sm mb-1">${item.country}</p>
+      <p class="text-blue-700 font-bold text-3xl sm:text-4xl break-all">${num}</p>
+      <button id="copyMain"
+        class="mt-3 px-4 py-2 text-xs sm:text-sm bg-blue-600 text-white rounded-full">
+        📋 Copy Number
+      </button>
+    `;
+
+    document.getElementById("copyMain").onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(num);
+        document.getElementById("copyMain").textContent = "✔ Copied";
+        setTimeout(()=>{ document.getElementById("copyMain").textContent = "📋 Copy Number"; }, 1500);
+      } catch(e) { alert("Copy failed: " + e); }
+    };
+  }
+
+  // -------- init --------
+  document.addEventListener("DOMContentLoaded", () => {
+    loadNumbers();
+    countrySelect.addEventListener("change", applyFilter);
+    refreshBtn.addEventListener("click", loadNumbers);
+    randomBtn.addEventListener("click", showRandom);
+  });
+</script>
+
+</body>
+</html>
