@@ -49,12 +49,12 @@ module.exports = async (req, res) => {
 
   const headers = {
     "User-Agent":
-      "Mozilla/5.0 (Linux; Android 13; V2040 Build/TP1A.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.7444.171 Mobile Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 15; V2423 Build/AP3A.240905.015.A2_D1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.7444.171 Mobile Safari/537.36",
     Accept: "application/json, text/javascript, */*; q=0.01",
     "X-Requested-With": "XMLHttpRequest",
     "Accept-Encoding": "gzip, deflate",
     "Accept-Language": "en-US,en;q=0.9",
-    Cookie: "PHPSESSID=5rio8skcusdc6qaa65o21a8319",
+    Cookie: "PHPSESSID=bch26hmqlvqtgc1nr55fbvj43m",
   };
 
   let url;
