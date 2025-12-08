@@ -4,62 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Junaid Niz  Free OTP Hub</title>
+  <title>Junaid Niz</title>
 
   <!-- Google Search Console -->
-  <meta name="google-site-verification" content="RgLzzD5mPp_MOfX4RmzwXHX4-kjK5uf7oO3efnUJQzU" />
+  <meta name="google-site-verification" content="RgLzzD5mPp_MOfX4RmzwXHX4-kjK5uf7oO3efnUJQzU">
 
-  <!-- Monetag Ads (meta) -->
+  <!-- Monetag Meta -->
   <meta name="monetag" content="9431abaead107503c481c105851686df">
 
-  <!-- Tailwind / Icons / Fonts -->
+  <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Feather Icons -->
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     body{
       font-family:'Poppins',sans-serif;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(59,130,246,0.35), transparent 55%),
-        radial-gradient(circle at 100% 15%, rgba(129,140,248,0.35), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(45,212,191,0.25), transparent 55%),
-        linear-gradient(to bottom, #0f172a 0, #020617 190px, #f3f4f6 190px);
-      background-attachment: fixed;
+      background:#fff;
       color:#111827;
     }
+
     .nav-glass{
-      box-shadow:0 18px 45px rgba(15,23,42,.35);
-      border-radius:999px;
+      box-shadow:0 18px 45px rgba(15,23,42,.12);
+      border-radius:50px;
       background:#ffffff;
-      backdrop-filter:blur(16px);
     }
+
     .card{
       background:#ffffff;
-      border-radius:1.25rem;
-      box-shadow:0 20px 40px rgba(15,23,42,.06);
+      border-radius:1rem;
+      box-shadow:0 10px 35px rgba(0,0,0,.06);
     }
+
     .scroll-area{
       max-height:70vh;
       overflow-y:auto;
     }
-    .pill{
-      border-radius:999px;
-    }
+
+    .pill{ border-radius:999px; }
+
     .otp-badge{
       background:#ede9fe;
       color:#4c1d95;
-      font-weight:700;
-      padding:.15rem .5rem;
-      border-radius:.75rem;
-      font-size:.75rem;
+      padding:2px 8px;
+      border-radius:8px;
+      font-size:12px;
     }
+
     .content-shell{
-      background:rgba(255,255,255,0.96);
-      backdrop-filter:blur(10px);
-      box-shadow:0 26px 60px rgba(15,23,42,0.25);
+      background:#ffffff;
       border-radius:1.5rem;
+      box-shadow:0 26px 60px rgba(0,0,0,0.08);
     }
+
     .brand-name{
       background:linear-gradient(120deg,#4f46e5,#ec4899,#f97316);
       -webkit-background-clip:text;
@@ -70,232 +71,195 @@
 
 <body class="min-h-screen">
 
-<!-- NAVBAR -->
+<!-- HEADER -->
 <header class="sticky top-4 z-30 flex justify-center px-4">
   <div class="nav-glass w-full max-w-5xl flex items-center justify-between px-4 py-2 sm:px-6">
+    
     <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center font-bold text-lg text-gray-900">
-        J
-      </div>
+      <div class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center font-bold text-lg text-gray-900">J</div>
       <div>
         <div class="brand-name font-extrabold text-lg leading-tight">Junaid Niz</div>
         <div class="text-xs text-gray-500 -mt-0.5">💎 VIP OTP Hub</div>
       </div>
     </div>
 
-    <button id="mobileMenuBtn"
-            class="p-2 rounded-2xl border border-gray-200 bg-white/80 shadow-sm">
+    <button id="mobileMenuBtn" class="p-2 rounded-2xl border border-gray-200 bg-white shadow">
       <i data-feather="menu" class="w-5 h-5 text-gray-700"></i>
     </button>
   </div>
 </header>
 
-<!-- OVERLAY + SIDE MENU -->
+<!-- SIDE MENU -->
 <div id="menuOverlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
 
 <aside id="sideMenu"
-       class="fixed top-0 right-0 h-full w-72 max-w-[80%] bg-white z-50 transform translate-x-full transition-transform duration-200 shadow-2xl flex flex-col">
+ class="fixed top-0 right-0 h-full w-72 max-w-[80%] bg-white z-50 transform translate-x-full transition-transform duration-200 shadow-2xl flex flex-col">
+
   <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
     <div class="font-semibold text-gray-800 text-sm">Menu</div>
-    <button id="closeMenuBtn"
-            class="p-1.5 rounded-xl border border-gray-200">
+    <button id="closeMenuBtn" class="p-1.5 rounded-xl border border-gray-200">
       <i data-feather="x" class="w-4 h-4 text-gray-700"></i>
     </button>
   </div>
 
   <nav class="flex-1 py-2 text-sm">
-    <a href="index.html" class="flex items-center gap-3 px-5 py-3 text-indigo-700 font-semibold hover:bg-indigo-50">✉ OTP Panel</a>
-    <a href="/numbershub/" class="flex items-center gap-3 px-5 py-3 text-gray-800 hover:bg-gray-50">📱 Free Numbers</a>
-    <a href="https://t.me/+8uILVxT_n6lhYzFk" target="_blank" class="flex items-center gap-3 px-5 py-3 text-gray-800 hover:bg-gray-50">📣 Telegram Main Channel</a>
-    <a href="https://t.me/+c4VCxBCT3-QzZGFk" target="_blank" class="flex items-center gap-3 px-5 py-3 text-gray-800 hover:bg-gray-50">📲 Numbers Channel</a>
+    <a href="https://www.junaidniz.pw/" class="flex items-center gap-3 px-5 py-3 text-indigo-700 font-semibold hover:bg-indigo-50">✉ OTP Panel</a>
+    <a href="/numbershub/" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50">📱 Free Numbers</a>
+    <a href="about.html" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50">ℹ️ About Us</a>
+    <a href="https://t.me/+8uILVxT_n6lhYzFk" target="_blank" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50">📣 Telegram Main Channel</a>
+    <a href="https://t.me/+c4VCxBCT3-QzZGFk" target="_blank" class="flex items-center gap-3 px-5 py-3 hover:bg-gray-50">📲 Numbers Channel</a>
   </nav>
 </aside>
 
 <!-- MAIN CONTENT -->
 <div class="px-4 pt-28 pb-10">
-  <main class="max-w-5xl mx-auto content-shell px-4 sm:px-6 py-6 space-y-6">
+<main class="max-w-5xl mx-auto content-shell px-4 sm:px-6 py-6 space-y-6">
 
-    <section class="card p-5 md:p-7 space-y-4 border border-gray-100">
-      <div>
-        <p class="uppercase tracking-wide text-xs font-semibold text-indigo-500 mb-1">Live Feed</p>
-        <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900">Incoming OTP Messages</h1>
-        <p id="otpSubtitle" class="text-sm text-gray-500 mt-1">Loading OTP .....</p>
-      </div>
+<section class="card p-5 md:p-7 space-y-4 border border-gray-100">
 
-      <p class="text-sm text-gray-600">
-        Latest <span class="font-semibold">WhatsApp / Telegram / Facebook</span> logs.
-      </p>
+  <div>
+    <h1 class="text-2xl font-extrabold">Incoming OTP Messages</h1>
+    <p id="otpSubtitle" class="text-sm text-gray-500">Loading OTP…</p>
+  </div>
 
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mt-2">
-        <button id="refreshSmsBtn"
-                class="pill w-full md:w-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold flex items-center justify-center gap-2 shadow">
-          <i id="refreshSmsIcon" data-feather="refresh-cw" class="w-4 h-4"></i>
-          Refresh SMS
-        </button>
-        <p id="smsStatus" class="text-xs md:text-sm text-gray-500">Loading SMS messages…</p>
-      </div>
+  <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+    <button id="refreshSmsBtn" class="pill px-4 py-2 bg-indigo-600 text-white flex items-center gap-2 shadow">
+      <i id="refreshSmsIcon" data-feather="refresh-cw" class="w-4 h-4"></i>
+      Refresh SMS
+    </button>
+    <p id="smsStatus" class="text-sm text-gray-500">Loading SMS…</p>
+  </div>
 
-      <div class="mt-3">
-        <label class="block text-xs font-semibold text-gray-500 mb-1">
-          Search OTP / Number / Service / Country / Message
-        </label>
-        <div class="relative">
-          <span class="absolute left-3 top-2.5 text-gray-400"><i data-feather="search" class="w-4 h-4"></i></span>
-          <input id="searchInput"
-                 class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-gray-200 text-sm bg-gray-50"
-                 type="text" placeholder="WhatsApp, Pakistan, Telegram…" />
-        </div>
-      </div>
+  <div>
+    <label class="text-xs font-semibold text-gray-500">Search</label>
+    <input id="searchInput" class="w-full mt-1 px-3 py-2 border rounded-lg text-sm" placeholder="Search OTP, number, message…" />
+  </div>
 
-      <div class="mt-4 scroll-area divide-y divide-gray-100" id="otpContainer"></div>
-      <p id="smsError" class="text-center text-sm text-red-500 hidden mt-3"></p>
-    </section>
+  <div id="otpContainer" class="scroll-area divide-y divide-gray-100"></div>
+  
+</section>
 
-    <footer class="text-center text-xs text-gray-400 pb-2">
-      Powered by <span class="font-semibold text-indigo-500">Junaid Niz</span> • Free OTP Hub
-    </footer>
+<footer class="text-center text-xs text-gray-400 pb-2">
+  Powered by <span class="font-semibold text-indigo-500">Junaid Niz</span> • Free OTP Hub
+</footer>
 
-  </main>
+</main>
 </div>
 
 <script>
-  feather.replace();
+feather.replace();
 
-  function cleanCountry(raw){
-    if(!raw) return "Unknown";
-    return raw.split("-")[0].trim();
+function cleanCountry(raw){ return raw?.split("-")[0].trim() || "Unknown"; }
+const FLAG = { Pakistan:"🇵🇰", Nigeria:"🇳🇬", Comoros:"🇰🇲" };
+
+function mask(n){ return n.length>7 ? n.slice(0,4)+"****"+n.slice(-3) : n; }
+function otpGet(msg){ const m = msg.match(/\b\d{3,8}\b/); return m ? m[0] : "N/A"; }
+
+const SMS_APIS = [
+  "https://corsproxy.io/?https://www.junaidniz.pw/api/tempotp?type=sms&iDisplayLength=10000",
+  "https://corsproxy.io/?https://www.kamibroken.pw/api/sms?type=sms&iDisplayLength=10000",
+  "https://corsproxy.io/?https://www.junaidniz.pw/api/tempotps?type=sms"
+];
+
+let allSms=[];
+
+async function fetchSMS(){
+  document.getElementById("smsStatus").textContent = "Loading…";
+  const rows=[];
+  for (const url of SMS_APIS){
+    try{
+      const r = await fetch(url);
+      const j = await r.json();
+      rows.push(...(j.aaData || j.data || j));
+    }catch(e){}
   }
+  allSms=rows;
+  render(rows);
+  document.getElementById("smsStatus").textContent = "Loaded "+rows.length+" messages";
+  document.getElementById("otpSubtitle").textContent = "Working OTP";
+}
 
-  const FLAG = { Pakistan:"🇵🇰", Nigeria:"🇳🇬", Comoros:"🇰🇲" };
-
-  function mask(n){
-    return n.length>7 ? n.slice(0,4)+"****"+n.slice(-3) : n;
-  }
-
-  function otpGet(msg){
-    const m = String(msg).match(/\b\d{3,8}\b/);
-    return m ? m[0] : "N/A";
-  }
-
-  const SMS_APIS = [
-    "https://www.junaidniz.pw/api/tempotp?type=sms&iDisplayLength=10000",
-    "https://www.kamibroken.pw/api/sms?type=sms&iDisplayLength=10000",
-    "https://www.junaidniz.pw/api/tempotps?type=sms"
-  ].map(u => "https://corsproxy.io/?"+encodeURIComponent(u));
-
-  let allSms = [];
-
-  function render(list){
-    const box = document.getElementById("otpContainer");
-    if(!list.length){
-      box.innerHTML = "<p class='text-center py-6 text-sm text-gray-500'>No data</p>";
-      return;
-    }
-    let html="";
-    list.forEach(r=>{
-      const [time,group,number,service,msg] = r;
-      const country = cleanCountry(group);
-      const flag = FLAG[country] || "🌍";
-      html += `
-      <article class="py-4 px-3 flex gap-3 text-sm">
-        <div class="mt-1 text-xl">${flag}</div>
-        <div class="flex-1">
-          <div class="flex flex-wrap gap-2 items-center">
-            <span class="font-semibold">${flag} New ${country} ${service}</span>
-            <span class="otp-badge">OTP: ${otpGet(msg)}</span>
-          </div>
-          <p class="text-xs text-gray-500 mt-1">📱 ${mask(String(number))}</p>
-          <p class="text-xs text-gray-500">🕒 ${time}</p>
-          <p class="mt-1 text-gray-700 text-xs">${msg}</p>
+function render(list){
+  const box=document.getElementById("otpContainer");
+  box.innerHTML = list.length ? "" : "<p class='text-center py-6'>No data</p>";
+  list.forEach(r=>{
+    const [time,group,number,service,msg]=r;
+    const country=cleanCountry(group);
+    const flag=FLAG[country]||"🌍";
+    box.innerHTML+=`
+    <div class="py-4 px-3 flex gap-3 text-sm">
+      <div class="mt-1 text-xl">${flag}</div>
+      <div>
+        <div class="flex gap-2 items-center">
+          <span class="font-semibold">${flag} New ${country} ${service}</span>
+          <span class="otp-badge">OTP: ${otpGet(msg)}</span>
         </div>
-      </article>`;
-    });
-    box.innerHTML = html;
-    feather.replace();
-  }
-
-  async function fetchSMS(){
-    const statusEl = document.getElementById("smsStatus");
-    const otpSubtitle = document.getElementById("otpSubtitle");
-    const box = document.getElementById("otpContainer");
-
-    statusEl.textContent = "Loading SMS…";
-    otpSubtitle.textContent = "Loading OTP .....";
-    box.innerHTML = "";
-
-    const rows = [];
-    for(const url of SMS_APIS){
-      try{
-        const r = await fetch(url);
-        if(!r.ok) continue;
-        const j = await r.json();
-        const d = j.aaData || j.data || j;
-        rows.push(...d);
-      }catch(e){}
-    }
-
-    allSms = rows;
-    render(rows);
-    statusEl.textContent = "Loaded " + rows.length + " messages.";
-    otpSubtitle.textContent = "Working OTP .";
-  }
-
-  // ===== MENU LOGIC ADD KIYA GAYA HAI =====
-  function openMenu(){
-    document.getElementById("sideMenu").classList.remove("translate-x-full");
-    document.getElementById("menuOverlay").classList.remove("hidden");
-  }
-
-  function closeMenu(){
-    document.getElementById("sideMenu").classList.add("translate-x-full");
-    document.getElementById("menuOverlay").classList.add("hidden");
-  }
-
-  document.addEventListener("DOMContentLoaded",()=>{
-    // OTP logic
-    fetchSMS();
-    document.getElementById("refreshSmsBtn").onclick = fetchSMS;
-    document.getElementById("searchInput").oninput = e=>{
-      const q = e.target.value.toLowerCase();
-      const f = allSms.filter(r=>r.join(" ").toLowerCase().includes(q));
-      render(f);
-    };
-
-    // MENU EVENTS
-    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-    const closeMenuBtn  = document.getElementById("closeMenuBtn");
-    const menuOverlay   = document.getElementById("menuOverlay");
-
-    mobileMenuBtn.addEventListener("click", (e)=>{
-      e.stopPropagation();
-      openMenu();
-    });
-
-    closeMenuBtn.addEventListener("click", (e)=>{
-      e.stopPropagation();
-      closeMenu();
-    });
-
-    menuOverlay.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", (e)=>{
-      if(e.key === "Escape") closeMenu();
-    });
+        <p class="text-xs text-gray-500 mt-1">📱 ${mask(String(number))}</p>
+        <p class="text-xs text-gray-500">🕒 ${time}</p>
+        <p class="mt-1 text-gray-700 text-xs">${msg}</p>
+      </div>
+    </div>`;
   });
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  fetchSMS();
+
+  document.getElementById("refreshSmsBtn").onclick = fetchSMS;
+  document.getElementById("searchInput").oninput = e=>{
+    const q=e.target.value.toLowerCase();
+    render(allSms.filter(r=>r.join(" ").toLowerCase().includes(q)));
+  };
+
+  // MENU
+  const menu=document.getElementById("sideMenu");
+  document.getElementById("mobileMenuBtn").onclick=()=>menu.classList.remove("translate-x-full");
+  document.getElementById("closeMenuBtn").onclick=()=>menu.classList.add("translate-x-full");
+  document.getElementById("menuOverlay").onclick=()=>menu.classList.add("translate-x-full");
+});
 </script>
 
-<!-- ⭐ Monetag OnClick (Popunder) Script -->
+<!-- ⭐ SERVICE WORKER FOR PUSH ADS -->
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/jn-push-sw.js")
+    .then(()=>console.log("Push SW loaded"))
+    .catch(()=>{});
+}
+</script>
+
+<!-- ⭐ ALL ADS (Popunder + Push + Banner etc.) -->
+<!-- 1) Monetag Popunder -->
 <script>
 (function(s){
   s.dataset.zone='10289202';
   s.src='https://al5sm.com/tag.min.js';
 })(
-  [document.documentElement, document.body]
-  .filter(Boolean)
-  .pop()
-  .appendChild(document.createElement('script'))
-)
+  [document.documentElement, document.body].pop()
+   .appendChild(document.createElement('script'))
+);
 </script>
 
+<!-- 2) 3nbf4 Pop Script -->
+<script src="https://3nbf4.com/act/files/tag.min.js?z=10289185" async></script>
+
+<!-- 3) Monetag second tag -->
+<script>
+(function(s){
+  s.dataset.zone='10289182';
+  s.src='https://al5sm.com/tag.min.js';
+})(
+  [document.documentElement, document.body].pop()
+   .appendChild(document.createElement('script'))
+);
+</script>
+
+<!-- 4) Otieu Link -->
+<script async src="https://otieu.com/4/10289180"></script>
+
+<!-- 5) Quge5 Ads -->
+<script src="https://quge5.com/88/tag.min.js" data-zone="191034" async></script>
+<script src="https://quge5.com/88/tag.min.js" data-zone="191011" async></script>
+
 </body>
-  </html>
+</html>
