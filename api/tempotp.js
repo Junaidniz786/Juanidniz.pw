@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 const CREDENTIALS = {
-    username: "Junaidali786",
-    password: "Junaidali786"
+    username: "Junaid86",
+    password: "Junai786"
 };
 
 const BASE_URL = "http://51.89.99.105/NumberPanel";
